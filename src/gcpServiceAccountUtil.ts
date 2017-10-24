@@ -62,11 +62,15 @@ export class GCPServiceAccountUtils {
         return this._privateKeyId;
     }
 
-    public async getPublicKey() {
+    public async getPublicKey(privateKeyId) {
 
         return new Promise((resolve, reject) => {
             axios.get(this.clientCertificateUrl).then(function (response) {
-                resolve(response.data[this.privateKeyId]);
+                let publicKey = response.data[privateKeyId];
+                if (publicKey)
+                    resolve(publicKey);
+                else
+                    reject(new Error("Unable to fetch the public key. There is no public key corresponding to the private key id " + privateKeyId))
             }).catch(function (err) {
                 reject(err);
             });
