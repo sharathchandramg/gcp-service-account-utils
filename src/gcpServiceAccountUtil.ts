@@ -1,21 +1,19 @@
 export class GCPServiceAccountUtils {
 
-    private _pathToServiceAccountConfigJson = null;
+    private _serviceAccount = null;
     
 
-    constructor(pathToServiceAccountConfigJson : string){
+    constructor(serviceAccount){
 
-        if(pathToServiceAccountConfigJson === "" || typeof pathToServiceAccountConfigJson == "undefined")
-            throw new Error("parameter service account file is required");
+        if(serviceAccount === null || typeof serviceAccount == "undefined")
+            throw new Error("parameter serviceAccount is required");
 
-        this._pathToServiceAccountConfigJson = pathToServiceAccountConfigJson;
+        this._serviceAccount = serviceAccount;
 
-        let configuration = require(this._pathToServiceAccountConfigJson);
-
-        this._privateKey = configuration.private_key;
+        this._privateKey = this._serviceAccount.private_key;
         this._audience = 'https://identitytoolkit.googleapis.com/google.identity.identitytoolkit.v1.IdentityToolkit';
-        this._issuer = configuration.client_email;
-        this._subject = configuration.client_email;
+        this._issuer = this._serviceAccount.client_email;
+        this._subject = this._serviceAccount.client_email;
 
     }
     
