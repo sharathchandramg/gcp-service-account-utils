@@ -1,4 +1,4 @@
-export class GCPServiceAccountUtil {
+export class GCPServiceAccountUtils {
 
     private _pathToServiceAccountConfigJson = null;
     

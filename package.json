@@ -2,8 +2,11 @@
   "name": "gcp-service-account-utils",
   "version": "1.0.0",
   "description": "Utility methods for working with gcp service accounts",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "prepublish": "npm run build",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,8 +14,8 @@
     "url": "git+https://github.com/sharathchandramg/gcp-service-account-utils.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "sharathchandramg",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sharathchandramg/gcp-service-account-utils/issues"
   },
