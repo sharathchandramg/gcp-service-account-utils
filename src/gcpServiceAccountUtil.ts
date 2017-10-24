@@ -64,12 +64,12 @@ export class GCPServiceAccountUtils {
 
     public async getPublicKey() {
 
-        try {
-            let response = await axios.get(this.clientCertificateUrl);
-            return response.data[this.privateKeyId];
-        }
-        catch (e) {
-            return e;
-        }
+        return new Promise((resolve, reject) => {
+            axios.get(this.clientCertificateUrl).then(function (response) {
+                resolve(response.data[this.privateKeyId]);
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
     }
 }
