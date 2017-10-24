@@ -1,6 +1,6 @@
 {
   "name": "gcp-service-account-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utility methods for working with gcp service accounts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
