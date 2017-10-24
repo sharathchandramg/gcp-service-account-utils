@@ -1,3 +1,3 @@
-import {GCPServiceAccountUtils as GCPServiceAccountUtils} from "./gcpServiceAccountUtil";
+import { GCPServiceAccountUtils } from "./gcpServiceAccountUtil";
 
-export {GCPServiceAccountUtils}
+export { GCPServiceAccountUtils }
